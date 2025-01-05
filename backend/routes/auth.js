@@ -32,4 +32,13 @@ router.post('/login',async (req,res)=>{
         res.status(400).json({ error: error.message });
     }
 });
+router.get('/users', async (req, res) => {
+    try {
+        const users = await User.find({}, 'email');  // Only send emails for the landing page
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ message: 'Error fetching users' });
+    }
+});
+
 module.exports = router;

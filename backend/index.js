@@ -13,11 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //connection
-mongoose.connect('mongodb://localhost:27017/login-signup', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-
-})
+mongoose.connect('mongodb://localhost:27017/login-signup')
     .then(() => console.log('Connected to MongoDB'))
     .catch((err) => console.error('MongoDB connection error:', err));
 
